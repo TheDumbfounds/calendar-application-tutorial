@@ -1,0 +1,12 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="container jumbotron">
+  <button onclick="window.location='{% url 'index' %}'" class="btn btn-default">Go Back</button>
+  <hr />
+  <h1>{{ entry.name }}</h1>
+  <hr />
+  <h5>{{ entry.date }}</h5>
+  <p>{{ entry.description }}</p>
+</div>
+{% endblock %}

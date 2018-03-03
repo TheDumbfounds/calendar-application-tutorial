@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calendar App</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}" />
+  <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}" />
+</head>
+<body>
+  {% block content %}
+
+  {% endblock %}
+</body>
+<script src="{% static 'myapp/js/calendar.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  var csrf_token = '{{ csrf_token }}'
+</script>
+</html>
