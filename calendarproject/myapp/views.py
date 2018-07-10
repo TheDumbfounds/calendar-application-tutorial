@@ -48,7 +48,7 @@ def add(request):
                 author=request.user,
                 date=date,
                 description=description,
-            ).save()
+            )
 
             return HttpResponseRedirect('/')
 
