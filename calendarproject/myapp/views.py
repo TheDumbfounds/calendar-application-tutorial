@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from .models import Entry
 from .forms import EntryForm
 from django.views.generic import TemplateView, ListView, DetailView
@@ -26,6 +26,12 @@ class EntryDetailView(LoginRequiredMixin, DetailView):
     template_name = 'myapp/details.html'
     model = Entry
     context_object_name = 'entry'
+    
+    def get_object(self):
+        entry = super().get_object()
+        if entry.author is not self.request.author:
+            raise Http404()
+        return entry
 
 # CreateView
 
