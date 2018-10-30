@@ -29,7 +29,7 @@ class EntryDetailView(LoginRequiredMixin, DetailView):
     
     def get_object(self):
         entry = super().get_object()
-        if entry.author is not self.request.author:
+        if entry.author != self.request.user:
             raise Http404()
         return entry
 
